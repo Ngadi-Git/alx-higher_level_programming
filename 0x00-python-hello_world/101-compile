@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 -m "import py_compile; py_compile -b'$PYFILE' i"
+python3 -m py_compile "$PYFILE"
