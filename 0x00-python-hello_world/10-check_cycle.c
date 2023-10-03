@@ -17,6 +17,9 @@ int check_cycle(listint_t *list)
 	listint_t *eleph = list;
 	listint_t *cheetah = list;
 
+	if (!list)
+		return (0);
+
 
 	for (; eleph && cheetah && cheetah->next; eleph = eleph->next, cheetah = cheetah->next->next)
 	{
