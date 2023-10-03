@@ -13,9 +13,10 @@ int check_cycle(listint_t *list)
 
 	if (!list)
 		return (0);
-
-	for (; runner1 && runner2 && runner2->next; runner1 = runner1->next, runner2 = runner2->next->next)
+	while (runner1 && runner2 && runner2->next)
 	{
+		runner1 = runner1->next;
+		runner2 = runner2->next->next;
 		if (runner1 == runner2)
 			return (1);
 	}
