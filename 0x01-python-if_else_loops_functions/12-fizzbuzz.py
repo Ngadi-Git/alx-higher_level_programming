@@ -1,14 +1,18 @@
 #!/usr/bin/python3
-# Author - Lennon PAUL
-"""This function Prints miltiples of three and five for numbers from 1 to 100."""
 
 def fizzbuzz():
-    for digit in range(1, 101):
-        if digit % 3 == 0 and digit % 5 == 0:
+    """Prints the numbers from 1 to 100 separated by a space.
+
+    For multiples of three, print Fizz.
+    For multiples of five, print Buzz.
+    For multiples of three and five, print FizzBuzz.
+    """
+    for dig in range(1, 101):
+        if dig % 3 == 0 and dig % 5 == 0:
             print("FizzBuzz ", end="")
-        elif digit % 3 == 0:
+        elif dig % 3 == 0:
             print("Fizz ", end="")
-        elif digit % 5 == 0:
+        elif dig % 5 == 0:
             print("Buzz ", end="")
         else:
-            print("{} ".format(digit), end="")
+            print("{} ".format(dig), end="")
