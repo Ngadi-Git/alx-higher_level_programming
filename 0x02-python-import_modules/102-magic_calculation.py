@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 
 def magic_calculation(a, b):
-    from magic_calculatiion_102 import add, sub
+    from magic_calculation_102 import add, sub
 
     if a < b:
-        sum = add(a, b)
+        c = add(a, b)
         for index in range(4, 6):
-            sum = ad    d(sum, index)
-        return (sum)
+            c = add(c, index)
+        return (c)
 
     else:
-        return(sub(a, b))
+        return (sub(a, b))
