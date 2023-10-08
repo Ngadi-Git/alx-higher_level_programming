@@ -7,4 +7,4 @@ def print_matrix_integer(matrix=[[]]):
                 if jdx != (len(matrix[index]) - 1):
                     print(" ", end="")
 
-        print("")
+        print()
