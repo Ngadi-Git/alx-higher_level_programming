@@ -2,10 +2,10 @@
 
 def weight_average(my_list=[]):
     if my_list and len(my_list):
-        digit = 0
-        bottom = 0
-        for top in my_list:
-            digit += (top[0] * top[1])
-             += (top[1])
-        return (digit/bottom)
+        num = 0
+        denom = 0
+        for tup in my_list:
+            num += (tup[0] * tup[1])
+            denom += (tup[1])
+        return (num/denom)
     return 0
