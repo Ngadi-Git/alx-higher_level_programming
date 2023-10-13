@@ -58,12 +58,19 @@ void print_python_bytes(PyObject *p)
 		bfr = ((PyVarObject *)p)->ob_size + 1;
 
 	printf("  first %d bytes: ", bfr);
-	for (index = 0; index < bfr; index++)
+	index = 0;
+
+	while (index < bfr)
 	{
 		printf("%02hhx", bytes->ob_sval[index]);
 		if (index == (bfr - 1))
+		{
 			printf("\n");
+		}
 		else
+		{
 			printf(" ");
+		}
+		index++;
 	}
 }
