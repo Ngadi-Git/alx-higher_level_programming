@@ -21,12 +21,15 @@ void print_python_list(PyObject *p)
 	printf("[*] Size of the Python List = %d\n", size);
 	printf("[*] Allocated = %d\n", alloc);
 
-	for (i = 0; i < size; i++)
+	i = 0;
+	while (i < size)
 	{
 		type = list->ob_item[i]->ob_type->tp_name;
 		printf("Element %d: %s\n", i, type);
+    
 		if (strcmp(type, "bytes") == 0)
 			print_python_bytes(list->ob_item[i]);
+		i++;
 	}
 }
 
