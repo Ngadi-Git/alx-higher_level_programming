@@ -10,7 +10,7 @@ void print_python_bytes(PyObject *p);
 void print_python_list(PyObject *p)
 {
 	int bfr, m_alloc, index;
-	const char *type;
+	const char *kind;
 	PyListObject *list = (PyListObject *)p;
 	PyVarObject *var = (PyVarObject *)p;
 
@@ -24,10 +24,10 @@ void print_python_list(PyObject *p)
 	index = 0;
 	while (index < bfr)
 	{
-		type = list->ob_item[index]->ob_type->tp_name;
-		printf("Element %d: %s\n", index, type);
+		kind = list->ob_item[index]->ob_type->tp_name;
+		printf("Element %d: %s\n", index, kind);
     
-		if (strcmp(type, "bytes") == 0)
+		if (strcmp(kind, "bytes") == 0)
 			print_python_bytes(list->ob_item[index]);
 		index++;
 	}
