@@ -38,7 +38,9 @@ void print_python_list(PyObject *obj)
 	for (i = 0; i < size; i++)
 	{
 		PyObject *item = list->ob_item[i];
+
 		type_name = item->ob_type->tp_name;
+
 		printf("Element %ld: %s\n", i, type_name);
 
 		if (strcmp(type_name, "bytes") == 0)
