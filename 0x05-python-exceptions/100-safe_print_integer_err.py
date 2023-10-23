@@ -9,5 +9,5 @@ try:
         print("{:d}".format(value))
         return (True)
     except (TypeError, ValueError) as e:
-        sys.stderr.write("Exception: {}\n".format(e.args[0]))
+        print("Exception: {}".format(sys.exc_info()[1]), file=sys.stderr)
         return (False)
