@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # 3-safe_print_division.py
 
-def safe_print_division(a, b):
+ef safe_print_division(a, b):
     try:
         quotnt = a / b
     except (TypeError, ZeroDivisionError):
