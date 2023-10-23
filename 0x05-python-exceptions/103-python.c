@@ -58,33 +58,32 @@ void print_python_list(PyObject *obj)
  * print_python_bytes - Prints basic info about Python byte objects.
  * @p: A PyObject byte object.
  */
-void print_python_bytes(PyObject *obj)
+void print_python_bytes(PyObject *p)
 {
 	Py_ssize_t size, i;
-	const char *data;
+	PyBytesObject *bytes = (PyBytesObject *)p;
 
-	if (!PyBytes_Check(obj))
+	fflush(stdout);
+
+	printf("[.] bytes object info\n");
+	if (strcmp(p->ob_type->tp_name, "bytes") != 0)
 	{
-		fprintf(stderr, "[.] bytes object info\n");
-		fprintf(stderr, "  [ERROR] Invalid Bytes Object\n");
+		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
 
-	PyBytesObject *bytes = (PyBytesObject *)obj;
+	printf("  size: %ld\n", ((PyVarObject *)p)->ob_size);
+	printf("  trying string: %s\n", bytes->ob_sval);
 
-	size = ((PyVarObject *)obj)->ob_size;
-	data = bytes->ob_sval;
-
-	printf("[.] bytes object info\n");
-	printf("  size: %ld\n", size);
-	printf("  trying string: %s\n", data);
-
-	size = (size >= 10) ? 10 : size;
+	if (((PyVarObject *)p)->ob_size >= 10)
+		size = 10;
+	else
+		size = ((PyVarObject *)p)->ob_size + 1;
 
 	printf("  first %ld bytes: ", size);
 	for (i = 0; i < size; i++)
 	{
-		printf("%02hhx", data[i]);
+		printf("%02hhx", bytes->ob_sval[i]);
 		if (i == (size - 1))
 			printf("\n");
 		else
