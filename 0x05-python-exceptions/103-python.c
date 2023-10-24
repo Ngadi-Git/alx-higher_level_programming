@@ -111,4 +111,4 @@ void print_python_float(PyObject *obj)
 	printf("  value: %s\n", buffer);
 
 	PyMem_Free(buffer);
-} 
+}
