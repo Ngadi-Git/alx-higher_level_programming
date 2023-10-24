@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-"""Module containing the Square class"""
+"""Defininf the Square class"""
 
 
 class Square:
     """The Square class"""
     def __init__(self, size=0):
-        """A new instance of Square
+        """Initializing an instance of Square object.
 
         Args:
-            size (int): The size of the instance of the square object. Default value is 0.
+            size (int): The size of the Square instance. Default value is zero(0).
         """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
