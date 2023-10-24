@@ -1,4 +1,7 @@
 #!/usr/bin/python3
-# 0-square.py
+"""Module containing the Square class"""
+
+
 class Square:
-    	pass
+    """An uninitialised class called Square"""
+    pass
