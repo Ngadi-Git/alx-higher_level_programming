@@ -89,23 +89,26 @@ void print_python_bytes(PyObject *p)
  * print_python_float - Prints basic info about Python float objects.
  * @p: A PyObject float object.
  */
-void print_python_float(PyObject *p)
+
+
+void print_python_float(PyObject *obj)
 {
-	char *buffer = NULL;
+	const char *type_name = obj->ob_type->tp_name;
 
-	PyFloatObject *float_obj = (PyFloatObject *)p;
-
-	fflush(stdout);
-
-	printf("[.] float object info\n");
-	if (strcmp(p->ob_type->tp_name, "float") != 0)
+	if (strcmp(type_name, "float") != 0)
 	{
-		printf("  [ERROR] Invalid Float Object\n");
+		fprintf(stderr, "[.] float object info\n");
+		fprintf(stderr, "  [ERROR] Invalid Float Object\n");
 		return;
 	}
 
-	buffer = PyOS_double_to_string(float_obj->ob_fval, 'r', 0,
-			Py_DTSF_ADD_DOT_0, NULL);
+	PyFloatObject *float_obj = (PyFloatObject *)obj;
+	double value = float_obj->ob_fval;
+
+	char *buffer = PyOS_double_to_string(value, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
+
+	printf("[.] float object info\n");
 	printf("  value: %s\n", buffer);
+
 	PyMem_Free(buffer);
-}
+} 
