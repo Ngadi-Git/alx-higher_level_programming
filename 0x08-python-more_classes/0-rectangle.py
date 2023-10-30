@@ -3,6 +3,7 @@
 # # Lennon N. Paul <ngadi.l.paul@gmail.com>
 """Defines a Rectangle class."""
 
-class Rectangle
+
+class Rectangle:
     """ Represents a rectangle. """
     pass
