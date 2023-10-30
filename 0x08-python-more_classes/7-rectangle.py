@@ -1,16 +1,15 @@
 #!/usr/bin/python3
-# 5-rectangle.py
+# 7-rectangle.py
 # # Lennon N. Paul <ngadi.l.paul@gmail.com>
 """Defines a Rectangle class."""
 
 
 class Rectangle:
-    """Represents a rectangle.
-
+    """Represent a rectangle.
 
     Attributes:
-            number_of_instances (int): The number of Rectangle instances.
-            print_symbol (any): The symbol used for string representation.
+        number_of_instances (int): The number of Rectangle instances.
+        print_symbol (any): The symbol used for string representation.
     """
 
     number_of_instances = 0
@@ -42,7 +41,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """Get/set the height of the Rectangle object"""
+        """Get/set the height of the Rectangle."""
         return self.__height
 
     @height.setter
@@ -54,17 +53,17 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Return the area of the Rectangle object"""
+        """Return the area of the Rectangle."""
         return (self.__width * self.__height)
 
     def perimeter(self):
-        """Return the perimeter of the Rectangle object"""
+        """Return the perimeter of the Rectangle."""
         if self.__width == 0 or self.__height == 0:
             return (0)
-        return (2 * ((self.__width) + (self.__height)))
+        return ((self.__width * 2) + (self.__height * 2))
 
     def __str__(self):
-        """Returns the printable representation of the Rectangle.
+        """Return the printable representation of the Rectangle.
 
         Represents the rectangle with the # character.
         """
@@ -72,19 +71,20 @@ class Rectangle:
             return ("")
 
         rectObj = []
-        for i in range(self.__height):
-            [rectObj.append('#') for j in range(self.__width)]
-            if i != self.__height - 1:
+        for row in range(self.__height):
+            [rectobj.append(str(self.print_symbol)) for col in range(
+                self.__width)]
+            if row != self.__height - 1:
                 rectObj.append("\n")
         return ("".join(rectObj))
 
     def __repr__(self):
-        """Returns the string representation of the Rectangle object."""
+        """Return the string representation of the Rectangle."""
         rectObj = "Rectangle(" + str(self.__width)
         rectObj += ", " + str(self.__height) + ")"
         return (rectObj)
 
     def __del__(self):
-        """Print a message for each deletion of a Rectangle object."""
+        """Print a message for every deletion of a Rectangle."""
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
