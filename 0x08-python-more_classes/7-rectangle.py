@@ -30,12 +30,11 @@ class Rectangle:
 
     @property
     def width(self):
-        """retrieves width attribute"""
+        """Get/Set the width attribute of the Rectangle"""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """sets width attribute"""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -44,7 +43,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """retrieves height attribute"""
+        """GEt/Sets the height attribute of the Rectangle"""
         return self.__height
 
     @height.setter
@@ -67,7 +66,7 @@ class Rectangle:
         return ((self.__width * 2) + (self.__height * 2))
 
     def __str__(self) -> str:
-        """presents a diagram of the rectangle defined for an object"""
+        """presents a diagram of the rectangle for a Rectangle object"""
         if self.__width == 0 or self.__height == 0:
             return ("")
         rectangle = ""
