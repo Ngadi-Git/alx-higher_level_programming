@@ -11,10 +11,9 @@ class Rectangle:
         """Initializes a new Rectangle instance.
 
         Args:
-            width(int): The width of the new Rectangle instance.
-            height(int): The height of the new Rectangle instance.
+            width (int): The width of the new Rectangle instance.
+            height (int): The height of the new Rectangle instance.
         """
-
         self.width = width
         self.height = height
 
@@ -32,7 +31,7 @@ class Rectangle:
         self.__width = value
 
     @property
-    def height(self, value):
+    def height(self):
         """Get/set the height of the rectangle."""
         return self.__height
 
@@ -40,6 +39,6 @@ class Rectangle:
     def height(self, value):
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
-        if height < 0:
+        if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
