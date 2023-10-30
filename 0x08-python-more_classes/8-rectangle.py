@@ -4,22 +4,22 @@
 
 
 class Rectangle:
-    """Represent a rectangle.
+    """Simulates a rectangle.
 
     Attributes:
-        number_of_instances (int): The number of Rectangle instances.
-        print_symbol (any): The symbol used for string representation.
+        number_of_instances (int): The count of Rectangle instances.
+        print_symbol (any): The symbol for string representation.
     """
 
     number_of_instances = 0
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
-        """Initialize a new Rectangle.
+        """Initializesa new Rectangle instance
 
         Args:
-            width (int): The width of the new rectangle.
-            height (int): The height of the new rectangle.
+            width (int): The width of the new rectangle object.
+            height (int): The height of the new rectangle object.
         """
         type(self).number_of_instances += 1
         self.width = width
@@ -63,10 +63,10 @@ class Rectangle:
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
-        """Return the Rectangle with the greater area.
+        """Returns the Rectangle with the greater area.
 
         Args:
-            rect_1 (Rectangle): The first Rectangle.
+            rect_1 (Rectangle): The first Rectangle .
             rect_2 (Rectangle): The second Rectangle.
         Raises:
             TypeError: If either of rect_1 or rect_2 is not a Rectangle.
@@ -87,18 +87,18 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ("")
 
-        rect = []
+        rectOj = []
         for i in range(self.__height):
-            [rect.append(str(self.print_symbol)) for j in range(self.__width)]
+            [rectObj.append(str(self.print_symbol)) for j in range(self.__width)]
             if i != self.__height - 1:
-                rect.append("\n")
-        return ("".join(rect))
+                rectObj.append("\n")
+        return ("".join(rectObj))
 
     def __repr__(self):
         """Return the string representation of the Rectangle."""
-        rect = "Rectangle(" + str(self.__width)
-        rect += ", " + str(self.__height) + ")"
-        return (rect)
+        rectObj = "Rectangle(" + str(self.__width)
+        rectObj += ", " + str(self.__height) + ")"
+        return (rectObj)
 
     def __del__(self):
         """Print a message for every deletion of a Rectangle."""
