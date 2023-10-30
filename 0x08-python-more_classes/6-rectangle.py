@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 4-rectangle.py
+# 6-rectangle.py
 # # Lennon N. Paul <ngadi.l.paul@gmail.com>
 """Defines a Rectangle class."""
 
@@ -75,6 +75,7 @@ class Rectangle:
         return (rectObj)
 
     def __del__(self):
-        """Print a message for each deletion of a Rectangle object."""
-        type(self).number_of_instances -= 1
+        """Print a message for each deletion of a Rectangle object.
+        """
+        Rectangle.number_of_instances -= 1
         print("Bye rectangle...")

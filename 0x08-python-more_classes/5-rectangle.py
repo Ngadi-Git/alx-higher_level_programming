@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 4-rectangle.py
+# 5-rectangle.py
 # # Lennon N. Paul <ngadi.l.paul@gmail.com>
 """Defines a Rectangle class."""
 
