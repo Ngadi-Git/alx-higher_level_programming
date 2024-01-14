@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 This script lists all states with
 a `name` starting with the letter `N`
@@ -11,7 +10,7 @@ from sys import argv
 
 if __name__ == '__main__':
     """
-    Accesses the database and gets the states
+    Access to the database and get the states
     from the database.
     """
     db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
