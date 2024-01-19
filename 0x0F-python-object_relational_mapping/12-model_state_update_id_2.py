@@ -1,29 +1,38 @@
 #!/usr/bin/python3
-"""
-script to add object Louisiana to database
-"""
+"""Add `Louisiana` State object to database `hbtn_0e_6_usa`."""
+
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column
+from sqlalchemy import Integer
+from sqlalchemy import String
+
+Base = declarative_base()
 
 
-from sys import argv
-from model_state import Base, State
+class State(Base):
+    """Class representing the `states` table.
 
-from sqlalchemy import (create_engine)
-from sqlalchemy.orm import sessionmaker
+    Columns:
+        id (int): /NOT NULL/AUTO_INCREMENT/PRIMARY_KEY/
+        name (string): /VARCHAR(128)/NOT NULL/
+    """
+    __tablename__ = 'states'
+
+    id = Column(Integer, nullable=False, primary_key=True, autoincrement=True)
+    name = Column(String(128), nullable=False)
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-                argv[1], argv[2], argv[3]), pool_pre_ping=True)
-    Base.metadata.create_all(engine)
+    import sys
+    from sqlalchemy import create_engine
+    from sqlalchemy.orm import sessionmaker
 
+    engine = create_engine('mysql+mysqldb://'
+                           '{}:{}@localhost/{}'
+                           .format(sys.argv[1],
+                                   sys.argv[2],
+                                   sys.argv[3]))
     Session = sessionmaker(bind=engine)
     session = Session()
-
-    try:
-        session.query(State).filter(
-            State.id == 2).update({"name": "New Mexico"})
-    except:
-        pass
-
+    nm = session.query(State).filter(State.id == 2).one()
+    nm.name = 'New Mexico'
     session.commit()
-
-    session.close()
